@@ -6,7 +6,7 @@
 		Android
 	]
   },
-  "pl.stepstone.selenium.guitests.android.AppiumSecondTest":
+  "pl.stepstone.selenium.guitests.www_browsers.FirstRun":
   {
 	"Enable":false,
 	"Webdrivers":[

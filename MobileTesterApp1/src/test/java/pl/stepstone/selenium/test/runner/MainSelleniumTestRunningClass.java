@@ -1,7 +1,6 @@
 package pl.stepstone.selenium.test.runner;
 
 import pl.stepstone.selenium.framework.TestExecuter;
-import pl.stepstone.selenium.framework.WebDriversConfigJsonFileReader;
 
 public class MainSelleniumTestRunningClass {
 	
@@ -47,11 +46,6 @@ public class MainSelleniumTestRunningClass {
 				System.out.println(flags[j]+" "+desc_pl[j]);
 			System.exit(-2);
 		}
-		
-		WebDriversConfigJsonFileReader wdcjf = new WebDriversConfigJsonFileReader(paramTbl[1]);
-		
-//		for(TestExecuter test:(new SeleniumParamValidator(paramTbl)).getSeleniumTests()) 
-//			test.executeTest();
 		
 	}
 }
