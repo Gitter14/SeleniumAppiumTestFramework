@@ -1,6 +1,6 @@
-package pl.maciek.uberna.test.selenium.framework;
+package pl.stepstone.selenium.framework;
 
-import pl.maciek.uberna.test.selenium.framework.TestExecuter;
+import pl.stepstone.selenium.framework.TestExecuter;
 import io.appium.java_client.android.AndroidDriver;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package pl.maciek.uberna.guitests.android.test;
+package pl.stepstone.selenium.guitests.android;
 
 import static org.junit.Assert.fail;
 
@@ -11,13 +11,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-import pl.maciek.uberna.test.selenium.framework.TestExecuter;
+import pl.stepstone.selenium.framework.TestExecuter;
 
-public class AppiumTest implements TestExecuter{
+public class AppiumPreTest implements TestExecuter{
 	  private WebDriver driver;
 	  private StringBuffer verificationErrors = new StringBuffer();
 	  
-	  public AppiumTest(HashMap<String, String> cfgMap, List<WebDriver> lst){
+	  public AppiumPreTest(HashMap<String, String> cfgMap, List<WebDriver> lst){
 		  	driver = lst.get(0);
 	  }
 

@@ -1,4 +1,4 @@
-package pl.maciek.uberna.test.selenium.framework;
+package pl.stepstone.selenium.framework;
 
 import java.lang.reflect.Constructor;
 import java.text.DateFormat;

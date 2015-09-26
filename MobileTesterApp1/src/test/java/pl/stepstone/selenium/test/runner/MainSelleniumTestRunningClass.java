@@ -1,9 +1,9 @@
-package pl.maciek.uberna.test.runner;
+package pl.stepstone.selenium.test.runner;
 
-import pl.maciek.uberna.test.selenium.framework.TestExecuter;
-import pl.maciek.uberna.test.selenium.framework.WebDriversConfigJsonFileReader;
+import pl.stepstone.selenium.framework.TestExecuter;
+import pl.stepstone.selenium.framework.WebDriversConfigJsonFileReader;
 
-public class MainSelleniumRunner {
+public class MainSelleniumTestRunningClass {
 	
 	public static void main(String args[]){
 		

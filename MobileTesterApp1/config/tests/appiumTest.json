@@ -1,12 +1,16 @@
 {
-  "AppiumFirstTest":
+  "pl.stepstone.selenium.guitests.android.AppiumPreTest":
   {
     "Enable":true,
-	"Browser":"Android"
+	"Webdrivers":[
+		Android
+	]
   },
-  "AppiumSecondTest":
+  "pl.stepstone.selenium.guitests.android.AppiumSecondTest":
   {
 	"Enable":false,
-	"Browser":"Appium"
+	"Webdrivers":[
+		
+	]
   }
 }

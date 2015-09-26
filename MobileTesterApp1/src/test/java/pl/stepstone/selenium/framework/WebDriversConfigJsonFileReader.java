@@ -1,4 +1,4 @@
-package pl.maciek.uberna.test.selenium.framework;
+package pl.stepstone.selenium.framework;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

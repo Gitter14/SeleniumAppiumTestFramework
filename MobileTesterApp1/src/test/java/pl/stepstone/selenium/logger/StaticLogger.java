@@ -1,4 +1,4 @@
-package pl.maciek.uberna.guitests.utils;
+package pl.stepstone.selenium.logger;
 
 public class StaticLogger {
 	static void logg(Object o){
