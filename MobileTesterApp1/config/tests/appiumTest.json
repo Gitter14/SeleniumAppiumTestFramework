@@ -1,0 +1,12 @@
+{
+  "AppiumFirstTest":
+  {
+    "Enable":true,
+	"Browser":"Android"
+  },
+  "AppiumSecondTest":
+  {
+	"Enable":false,
+	"Browser":"Appium"
+  }
+}
