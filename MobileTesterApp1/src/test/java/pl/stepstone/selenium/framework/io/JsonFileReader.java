@@ -2,26 +2,13 @@ package pl.stepstone.selenium.framework.io;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import org.mockito.internal.matchers.InstanceOf;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 
 public class JsonFileReader {
 	
@@ -33,6 +20,7 @@ public class JsonFileReader {
 	  */
 	
 	public JsonFileReader(String jsonPath){
+		
 		try {
 			String configJsonString = new String(Files.readAllBytes(Paths.get(jsonPath)));
 			jsonObj = new JsonParser().parse(configJsonString).getAsJsonObject();
@@ -48,7 +36,11 @@ public class JsonFileReader {
 		} catch (IOException e4) {
 			
 			e4.printStackTrace();
-		}
-			
+		}	
 	}
+	
+	public JsonObject getJson(){
+		return jsonObj;
+	}
+	
 }
