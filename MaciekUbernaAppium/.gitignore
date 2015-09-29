@@ -1,0 +1,8 @@
+/bin/
+/.classpath/
+/build/
+/drivers/
+/parsers/
+/defaultPhoneNum.txt/
+/.settings/
+/.gradle/
