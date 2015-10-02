@@ -33,11 +33,27 @@ public class Tests {
 		Type type = new TypeToken<Test>(){}.getType();
 		for( Map.Entry<String,JsonElement> e : entries){
 			Object o = gsonReceiver.fromJson(e.getValue(),type);
-			if (o instanceof Test)
-				testy.add((Test) o);
+			if (o instanceof Test){
+				Test t = ((Test) o);
+				t.setName(e.getKey());
+				testy.add(t);
+			}
 			else 
 				System.out.println("Error: Wrong Json format.");
 		}
+		int aSize = testy.size();
+		System.out.println("Tests size: "+aSize);
+		for(int a=0;a< aSize;a++){
+			Test t = testy.get(a);
+			System.out.println("Test Name: "+t.getName());
+			System.out.println("Test Objects: "+t.getTestObjects().toString());
+			for(Subtest s: t.getTestList()){
+				System.out.println("Enable: "+s.enable());
+				System.out.println("Drivers: "+s.drivers().toString());
+				System.out.println("Parameters: "+s.params().toString());
+			}
+		}
+		
 	}
 	
 }

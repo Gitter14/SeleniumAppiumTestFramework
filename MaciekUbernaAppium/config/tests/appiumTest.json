@@ -1,28 +1,28 @@
 {
   "pl.stepstone.selenium.guitests.android.AppiumPreTest":
   {	
-  "TestObjects":
+  "testObjects":
   	{
   		"Object1":"o1",
   		"Object2":"o2"
   	},
-  "TestList":[
+  "testList":[
 		{
-			"Enable":false,
-			"WebDriversNames":[
+			"enable":false,
+			"webdrivers":[
 				"Android"
 			],
-			"Parameters":{
+			"parameters":{
 				"Param1":"valueOfParam1",
 				"Param2":"valueOfParam2"
 			}
 		},
 		{
-			"Enable":false,
-			"WebDriversNames":[
+			"enable":false,
+			"webdrivers":[
 				"Android"
 			],
-			"Parameters":{
+			"parameters":{
 				"Param3":"valueOfParam3",
 				"Param4":"valueOfParam4"
 			}
@@ -31,44 +31,44 @@
   },
   "pl.stepstone.selenium.guitests.www_browsers.FirstRun":
   { 
-  "TestObjects":
+  "testObjects":
   	{
   		"Object1":"o1",
   		"Object2":"o2"
   	},
-  "TestList":[	
+  "testList":[	
 			{
-				"Enable":true,
-				"WebDriversNames":[
+				"enable":true,
+				"webdrivers":[
 					"Firefox,Firefox",
 					"Chrome",
 					"Opera"
 				],
-				"Parameters":{
+				"parameters":{
 					"Param1":"valueOfParam1",
 					"Param2":"valueOfParam2"		
 				}
 			},
 			{
-				"Enable":false,
-				"WebDriversNames":[
+				"enable":false,
+				"webdrivers":[
 					"Firefox",
 					"Chrome",
 					"Opera"
 				],
-				"Parameters":{
+				"parameters":{
 					"Param3":"valueOfParam3",
 					"Param4":"valueOfParam4"		
 				}
 			},
 			{
-				"Enable":false,
-				"WebDriversNames":[
+				"enable":false,
+				"webdrivers":[
 					"Firefox",
 					"Chrome",
 					"Opera"
 				],
-				"Parameters":{
+				"parameters":{
 					"Param5":"valueOfParam5",
 					"Param6":"valueOfParam6"		
 				}
