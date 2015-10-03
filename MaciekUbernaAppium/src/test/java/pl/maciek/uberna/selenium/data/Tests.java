@@ -3,10 +3,12 @@ package pl.maciek.uberna.selenium.data;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import pl.maciek.uberna.selenium.exception.FrameworkException;
+import pl.maciek.uberna.selenium.framework.SeleniumTestsInPoolExecutor;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -15,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class Tests {
 	private int numberOfThreadsForTheTests;
-	private ArrayList<Test> testy;
+	private List<Test> testy;
 	private Hashtable<String,Hashtable<String,String>> allDriversConfigurations;
 	
 	@SuppressWarnings("unchecked")
@@ -55,14 +57,15 @@ public class Tests {
 		//System.out.println(allDriversConfigurations.get("Android_SonyEricson_Lista").toString());
 	}
 	
-	public int getNumberOfThreadsForTheTests() {
-		return numberOfThreadsForTheTests;
-	}
-	public ArrayList<Test> getTesty() {
-		return testy;
-	}
-	public Hashtable<String, Hashtable<String, String>> getAllDriversConfigurations() {
-		return allDriversConfigurations;
+	public void executeTests(){
+		for(Test t : testy){
+			for (Subtest s : t.getTestList()){
+				SeleniumTestsInPoolExecutor executor = 
+						new SeleniumTestsInPoolExecutor(s.enable(), t.getName(), 
+								s.params(), s.drivers(), allDriversConfigurations);
+				executor.executeMultipleTestInstances(numberOfThreadsForTheTests, 30);
+			}
+		}
 	}
 	
 }

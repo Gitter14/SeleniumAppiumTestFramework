@@ -21,7 +21,10 @@ public class SeleniumTestsInPoolExecutor {
 			List<String> testDriverNamesToRunTests, Map<String,Hashtable<String,String>> allDriversProperties ){
 		this.enable = enable;
 		if (enable){
-			allDriversProperties = new Hashtable<String, Hashtable<String,String>>(10);
+			this.allDriversProperties = allDriversProperties;
+			this.testDriverNamesToRunTests = testDriverNamesToRunTests;
+			this.testProperties = testProperties;
+			this.testName = testName;
 		}
 	}
 	
