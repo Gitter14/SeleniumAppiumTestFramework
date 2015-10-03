@@ -1,5 +1,6 @@
 package pl.maciek.uberna.selenium.guitests.www_browsers;
-import java.util.HashMap;
+
+import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -13,12 +14,15 @@ import org.openqa.selenium.support.ui.Select;
 import pl.maciek.uberna.selenium.framework.TestExecuter;
 
 public class FirstRun implements TestExecuter{
+  private List<WebDriver> wdList;
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
   
-  public FirstRun(HashMap<String, String> cfgMap, List<WebDriver> lst){
-  	driver = lst.get(0);
+  public FirstRun(
+		  Hashtable<String, String> cfgMap, List<WebDriver> wdList){
+	this.wdList = wdList;
+  	driver = wdList.get(0);
   	baseUrl = cfgMap.get("baseUrl");
   }
   
@@ -59,7 +63,8 @@ public class FirstRun implements TestExecuter{
 
   @After
   public void tearDown() throws InterruptedException {
-	driver.quit();
+	for (WebDriver wd : wdList)
+		wd.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);

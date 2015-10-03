@@ -52,5 +52,6 @@ public class MainSelleniumTestRunningClass {
 		JsonFileReader jsonDrivers = new JsonFileReader(paramTbl[1]);
 		Tests t = new Tests(jsonTests.getJson(),jsonDrivers.getJson(),4);
 		t.executeTests();
+		
 	}
 }

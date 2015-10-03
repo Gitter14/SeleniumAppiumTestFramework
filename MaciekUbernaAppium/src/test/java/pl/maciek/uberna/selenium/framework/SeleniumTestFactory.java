@@ -5,7 +5,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
+
+import pl.maciek.uberna.selenium.framework.SeleniumWebDriverInit;
 
 public class SeleniumTestFactory implements Runnable{
 	
@@ -40,8 +43,8 @@ public class SeleniumTestFactory implements Runnable{
 		try {
 			setUp();
 			Class<?> testClass = Class.forName(testName);
-			Constructor<?> testClassConstructor = testClass.getConstructor(Map.class,String.class,Map.class);
-			Object object = testClassConstructor.newInstance(new Object[] { testProperties, driversInitString, allDriversProperties } );
+			Constructor<?> testClassConstructor = testClass.getConstructor(Map.class,String.class,List.class);
+			Object object = testClassConstructor.newInstance(new Object[] { testProperties, (new SeleniumWebDriverInit(allDriversProperties)).getWebDrivers(driversInitString) } );
 			if (object instanceof TestExecuter){
 				TestExecuter testExecuter = (TestExecuter) object;
 				testExecuter.executeTest();

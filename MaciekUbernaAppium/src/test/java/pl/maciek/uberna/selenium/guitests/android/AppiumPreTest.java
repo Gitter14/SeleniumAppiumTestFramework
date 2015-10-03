@@ -2,7 +2,7 @@ package pl.maciek.uberna.selenium.guitests.android;
 
 import static org.junit.Assert.fail;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -14,11 +14,14 @@ import org.openqa.selenium.WebDriver;
 import pl.maciek.uberna.selenium.framework.TestExecuter;
 
 public class AppiumPreTest implements TestExecuter{
+	  private List<WebDriver> wdList;
 	  private WebDriver driver;
 	  private StringBuffer verificationErrors = new StringBuffer();
 	  
-	  public AppiumPreTest(HashMap<String, String> cfgMap, List<WebDriver> lst){
-		  	driver = lst.get(0);
+	  public AppiumPreTest(
+			  Hashtable<String, String> cfgMap, List<WebDriver> wdList){
+		  this.wdList = wdList;
+		  driver = wdList.get(0);
 	  }
 
 	  @Before
@@ -33,7 +36,8 @@ public class AppiumPreTest implements TestExecuter{
 	  
 	  @After
 	  public void tearDown() throws InterruptedException {
-		driver.quit();
+		for (WebDriver wd : wdList)
+			wd.quit();
 	    String verificationErrorString = verificationErrors.toString();
 	    if (!"".equals(verificationErrorString)) {
 	      fail(verificationErrorString);

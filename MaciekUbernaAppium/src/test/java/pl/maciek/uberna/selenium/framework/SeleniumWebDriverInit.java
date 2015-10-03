@@ -2,9 +2,7 @@ package pl.maciek.uberna.selenium.framework;
 
 import io.appium.java_client.android.AndroidDriver;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.List;
 
@@ -23,17 +21,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import pl.maciek.uberna.selenium.webdriver.configurators.AppiumAndroid;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
 
 public class SeleniumWebDriverInit {
 	
-	private Map<String,Map<String,String>> allDrivesParams;
+	private Map<String,Hashtable<String,String>> allDrivesParams;
 	private List<String> driverInfo;
 	private List<WebDriver> drvTabl;
 	
-	public SeleniumWebDriverInit(Map<String,Map<String,String>> allDrivesParams) {
+	public SeleniumWebDriverInit(Map<String,Hashtable<String,String>> allDrivesParams) {
 		this.allDrivesParams = allDrivesParams;
 	}
 	
