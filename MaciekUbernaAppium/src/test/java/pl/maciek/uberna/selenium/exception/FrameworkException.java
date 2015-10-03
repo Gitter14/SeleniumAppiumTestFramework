@@ -1,7 +1,12 @@
 package pl.maciek.uberna.selenium.exception;
 
 public class FrameworkException extends Exception {
-    public FrameworkException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public FrameworkException(String message) {
         super(message);
     }
 }
