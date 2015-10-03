@@ -6,6 +6,8 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
+import pl.maciek.uberna.selenium.exception.FrameworkException;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -16,17 +18,9 @@ public class Tests {
 	private ArrayList<Test> testy;
 	private Hashtable<String,Hashtable<String,String>> allDriversConfigurations;
 	
-	public int getNumberOfThreadsForTheTests() {
-		return numberOfThreadsForTheTests;
-	}
-	public ArrayList<Test> getTesty() {
-		return testy;
-	}
-	public Hashtable<String, Hashtable<String, String>> getAllDriversConfigurations() {
-		return allDriversConfigurations;
-	}
-	
-	public void setTesty(JsonObject tests){
+	@SuppressWarnings("unchecked")
+	public Tests(JsonObject tests, JsonObject drivers,int threads){
+		numberOfThreadsForTheTests = threads;
 		Gson gsonReceiver = new Gson();
 		Set<Map.Entry<String,JsonElement>> entries = tests.entrySet();
 		testy = new ArrayList<Test>(entries.size());
@@ -37,23 +31,38 @@ public class Tests {
 				Test t = ((Test) o);
 				t.setName(e.getKey());
 				testy.add(t);
-			}
-			else 
-				System.out.println("Error: Wrong Json format.");
-		}
-		int aSize = testy.size();
-		System.out.println("Tests size: "+aSize);
-		for(int a=0;a< aSize;a++){
-			Test t = testy.get(a);
-			System.out.println("Test Name: "+t.getName());
-			System.out.println("Test Objects: "+t.getTestObjects().toString());
-			for(Subtest s: t.getTestList()){
-				System.out.println("Enable: "+s.enable());
-				System.out.println("Drivers: "+s.drivers().toString());
-				System.out.println("Parameters: "+s.params().toString());
+			} else {
+				try {
+					throw new FrameworkException("Error: Wrong Json format: Shoule be of \"Test\" type.");
+				} catch(FrameworkException ex) {
+					ex.printStackTrace();
+					System.exit(-1);
+				}
 			}
 		}
-		
+		type = new TypeToken<Hashtable<String,Hashtable<String,String>>>(){}.getType();
+		Object o = gsonReceiver.fromJson(drivers,type);
+		if (o instanceof Hashtable<?,?>){
+			allDriversConfigurations = ((Hashtable<String,Hashtable<String,String>>) o);
+		} else {
+			try {
+				throw new FrameworkException("Error: Wrong Json format: Shoule be of \"Hashtable<?,?>\" type.");
+			} catch(FrameworkException ex) {
+				ex.printStackTrace();
+				System.exit(-1);
+			}
+		}
+		//System.out.println(allDriversConfigurations.get("Android_SonyEricson_Lista").toString());
+	}
+	
+	public int getNumberOfThreadsForTheTests() {
+		return numberOfThreadsForTheTests;
+	}
+	public ArrayList<Test> getTesty() {
+		return testy;
+	}
+	public Hashtable<String, Hashtable<String, String>> getAllDriversConfigurations() {
+		return allDriversConfigurations;
 	}
 	
 }

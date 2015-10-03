@@ -1,9 +1,6 @@
 package pl.maciek.uberna.selenium.main;
 
-import com.google.gson.JsonObject;
-
 import pl.maciek.uberna.selenium.data.Tests;
-import pl.maciek.uberna.selenium.framework.TestExecuter;
 import pl.maciek.uberna.selenium.framework.io.JsonFileReader;
 
 public class MainSelleniumTestRunningClass {
@@ -51,8 +48,8 @@ public class MainSelleniumTestRunningClass {
 			System.exit(-2);
 		}
 		
-		Tests t = new Tests();
-		JsonFileReader jfr = new JsonFileReader(paramTbl[0]);
-		t.setTesty(jfr.getJson());
+		JsonFileReader jsonTests = new JsonFileReader(paramTbl[0]);
+		JsonFileReader jsonDrivers = new JsonFileReader(paramTbl[1]);
+		Tests t = new Tests(jsonTests.getJson(),jsonDrivers.getJson(),4);
 	}
 }
