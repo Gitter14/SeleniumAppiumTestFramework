@@ -18,7 +18,7 @@ public class MainSelleniumTestRunningClass {
 		String desc_pl[] = {
 							"[Ścieżka do pliku z konfiguracjami testów.] -Wymagane-",
 							"[Ścieżka do pliku z konfiguracją przeglądarek www.] -Wymagane-",
-							"[Maksymalna ilość symultanicznie wykonywanych testów.] -Wymagane-"
+							"[Maksymalna liczba symultanicznie wykonywanych testów.] -Wymagane-"
 					  	};
 		
 		for (int i=0;i<args.length;i++){
@@ -33,7 +33,7 @@ public class MainSelleniumTestRunningClass {
 					paramTbl[1]=args[i+1];
 					obligatoryParams++;
 					break;
-				case "-cfgThreads":
+				case "-cfgthreads":
 					paramTbl[2]=args[i+1];
 					obligatoryParams++;
 					break;

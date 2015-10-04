@@ -30,12 +30,12 @@ public class SeleniumTestFactory implements Runnable{
 	
 	private void setUp() throws InterruptedException{
 		data = new Date();
-		System.out.println(dateFormat.format(data)+" "+testName+" started test.");
+		System.out.println(dateFormat.format(data)+" "+testName+" "+driversInitString+" started test.");
 	}
 	
 	private void tearDown() throws Exception{
 		data = new Date();
-		System.out.println(dateFormat.format(data)+" "+testName+" ended test.");
+		System.out.println(dateFormat.format(data)+" "+testName+" "+driversInitString+" ended test.");
 	}
 
 	@Override
