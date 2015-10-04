@@ -44,23 +44,23 @@ public class SeleniumWebDriverInit {
 		driverInfo = new ArrayList<String>(webDriversNames.length);
 		for(String driverName : webDriversNames){
 			driverInfo.add(driverName);
-			driverName = driverName.toLowerCase();
-			if(driverName.startsWith("android")){
+			String driverNameLowercase = driverName.toLowerCase();
+			if(driverNameLowercase.startsWith("android")){
 			    AppiumAndroid aa = new AppiumAndroid(allDrivesParams.get(driverName));
 			    drvTabl.add(new AndroidDriver(aa.getHubUrl(), aa.getDesiredCapabilities()));    
-			} else if (driverName.startsWith("firefox")){
+			} else if (driverNameLowercase.startsWith("firefox")){
 				FirefoxSimple fS = new FirefoxSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new FirefoxDriver(fS.getDesiredCapabilities()));
-			} else if (driverName.startsWith("chrome")) {
+			} else if (driverNameLowercase.startsWith("chrome")) {
 				ChromeSimple chS = new ChromeSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new FirefoxDriver(chS.getDesiredCapabilities()));
-			} else if (driverName.startsWith("phantomjs")) {
+			} else if (driverNameLowercase.startsWith("phantomjs")) {
 				PhantomJsSimple pJsS = new PhantomJsSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new PhantomJSDriver(pJsS.getDesiredCapabilities()));				
-			} else if (driverName.startsWith("opera")) {
+			} else if (driverNameLowercase.startsWith("opera")) {
 				OperaSimple oS = new OperaSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new OperaDriver(oS.getDesiredCapabilities()));				
-			} else if (driverName.startsWith("ie")||driverName.startsWith("internetexplorer")) {
+			} else if (driverNameLowercase.startsWith("ie")||driverName.startsWith("internetexplorer")) {
 				InternetExplorerSimple ieS = new InternetExplorerSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new InternetExplorerDriver(ieS.getDesiredCapabilities()));				
 			} else {
@@ -68,7 +68,6 @@ public class SeleniumWebDriverInit {
 				System.exit(-1);
 			}
 		}
-			
 		return drvTabl;
 	}
 	
