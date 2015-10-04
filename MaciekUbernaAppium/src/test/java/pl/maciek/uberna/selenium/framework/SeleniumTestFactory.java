@@ -43,8 +43,9 @@ public class SeleniumTestFactory implements Runnable{
 		try {
 			setUp();
 			Class<?> testClass = Class.forName(testName);
-			Constructor<?> testClassConstructor = testClass.getConstructor(Map.class,String.class,List.class);
-			Object object = testClassConstructor.newInstance(new Object[] { testProperties, (new SeleniumWebDriverInit(allDriversProperties)).getWebDrivers(driversInitString) } );
+			Constructor<?> testClassConstructor = testClass.getConstructor(Map.class,List.class);
+			Object object = testClassConstructor.newInstance(new Object[] { testProperties, 
+					(new SeleniumWebDriverInit(allDriversProperties)).getWebDrivers(driversInitString) } );
 			if (object instanceof TestExecuter){
 				TestExecuter testExecuter = (TestExecuter) object;
 				testExecuter.executeTest();

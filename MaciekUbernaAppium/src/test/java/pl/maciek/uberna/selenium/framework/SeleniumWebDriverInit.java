@@ -2,6 +2,7 @@ package pl.maciek.uberna.selenium.framework;
 
 import io.appium.java_client.android.AndroidDriver;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.List;
@@ -34,8 +35,11 @@ public class SeleniumWebDriverInit {
 	
 	public List<WebDriver> getWebDrivers(String webDrvType) {
 		String[] webDriversNames = webDrvType.split(",");
-		
+		drvTabl = new ArrayList<WebDriver>(webDriversNames.length);
+		driverInfo = new ArrayList<String>(webDriversNames.length);
 		for(String driverName : webDriversNames){
+			driverInfo.add(driverName);
+			driverName = driverName.toLowerCase();
 			if(driverName.startsWith("android")){
 			    AppiumAndroid aa = new AppiumAndroid(allDrivesParams.get(driverName));
 			    drvTabl.add(new AndroidDriver(aa.getHubUrl(), aa.getDesiredCapabilities()));    

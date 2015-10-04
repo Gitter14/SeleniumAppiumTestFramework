@@ -1,5 +1,5 @@
 {
-  "pl.stepstone.selenium.guitests.android.AppiumPreTest":
+  "pl.maciek.uberna.selenium.guitests.android.AppiumPreTest":
   {	
   "testObjects":
   	{
@@ -29,7 +29,7 @@
 		}
 	]
   },
-  "pl.stepstone.selenium.guitests.www_browsers.FirstRun":
+  "pl.maciek.uberna.selenium.guitests.www_browsers.FirstRun":
   { 
   "testObjects":
   	{
@@ -45,7 +45,7 @@
 					"Opera"
 				],
 				"parameters":{
-					"Param1":"valueOfParam1",
+					"baseUrl":"http://allegro.pl/",
 					"Param2":"valueOfParam2"		
 				}
 			},

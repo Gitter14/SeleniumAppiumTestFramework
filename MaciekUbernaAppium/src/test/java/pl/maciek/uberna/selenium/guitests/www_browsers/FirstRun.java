@@ -1,7 +1,7 @@
 package pl.maciek.uberna.selenium.guitests.www_browsers;
 
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.*;
@@ -20,7 +20,7 @@ public class FirstRun implements TestExecuter{
   private StringBuffer verificationErrors = new StringBuffer();
   
   public FirstRun(
-		  Hashtable<String, String> cfgMap, List<WebDriver> wdList){
+		  Map<String, String> cfgMap, List<WebDriver> wdList){
 	this.wdList = wdList;
   	driver = wdList.get(0);
   	baseUrl = cfgMap.get("baseUrl");
