@@ -24,24 +24,33 @@
 		 "androidURL":"http://127.0.0.1:4723/wd/hub"
 	},
 	"Firefox":{
-		 "forceSslTrust":true,
-		 "jsEnable":true
+		 "trustAllSSLCertificates":true,
+		 "setJavascriptEnabled":true
 	},
 	"Chrome":{
+		"chromeDriverLoc":"drivers/chromedriver.exe",
+		"chromeArguments":"--allow-running-insecure-content",
 		"arguments":"--allow-running-insecure-content",
 		"jsEnable":true
 	},
 	"Phantomjs":{
-		"arguments":"--webdriver-loglevel=NONE,--ignore-ssl-errors=true",
+		"phantomjsDriverLoc":"drivers/phantomjs.exe",
+		"phantomjsArguments":"--webdriver-loglevel=NONE,--ignore-ssl-errors=true",
+		"localToRemoteUrlAccessEnabled":true,
+		"takesScreenshot":true,
 		"jsEnable":true,
 		"localToRemoteUrlAccess":true
 	},
 	"Opera":{
+		"operaDriverLoc":"drivers/operadriver.exe",
 		"jsEnable":true,
 		"logLevel":"OFF",
-		"forceSslTrust":true
+		"profile":"",
+		"ACCEPT_SSL_CERTS":true
 	},
 	"Ie":{
+		"ieDriverLoc":"drivers/IEDriverServer.exe",
+		"INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS":true,
 		"jsEnable":true,
 		"forceSslTrust":true
 	}

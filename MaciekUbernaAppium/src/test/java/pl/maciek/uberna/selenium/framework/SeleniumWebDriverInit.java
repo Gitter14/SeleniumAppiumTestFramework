@@ -21,6 +21,11 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import pl.maciek.uberna.selenium.webdriver.configurators.AppiumAndroid;
+import pl.maciek.uberna.selenium.webdriver.configurators.ChromeSimple;
+import pl.maciek.uberna.selenium.webdriver.configurators.FirefoxSimple;
+import pl.maciek.uberna.selenium.webdriver.configurators.InternetExplorerSimple;
+import pl.maciek.uberna.selenium.webdriver.configurators.OperaSimple;
+import pl.maciek.uberna.selenium.webdriver.configurators.PhantomJsSimple;
 
 
 public class SeleniumWebDriverInit {
@@ -44,15 +49,20 @@ public class SeleniumWebDriverInit {
 			    AppiumAndroid aa = new AppiumAndroid(allDrivesParams.get(driverName));
 			    drvTabl.add(new AndroidDriver(aa.getHubUrl(), aa.getDesiredCapabilities()));    
 			} else if (driverName.startsWith("firefox")){
-				
+				FirefoxSimple fS = new FirefoxSimple(allDrivesParams.get(driverName));
+				drvTabl.add(new FirefoxDriver(fS.getDesiredCapabilities()));
 			} else if (driverName.startsWith("chrome")) {
-				
+				ChromeSimple chS = new ChromeSimple(allDrivesParams.get(driverName));
+				drvTabl.add(new FirefoxDriver(chS.getDesiredCapabilities()));
 			} else if (driverName.startsWith("phantomjs")) {
-				
+				PhantomJsSimple pJsS = new PhantomJsSimple(allDrivesParams.get(driverName));
+				drvTabl.add(new PhantomJSDriver(pJsS.getDesiredCapabilities()));				
 			} else if (driverName.startsWith("opera")) {
-				
+				OperaSimple oS = new OperaSimple(allDrivesParams.get(driverName));
+				drvTabl.add(new OperaDriver(oS.getDesiredCapabilities()));				
 			} else if (driverName.startsWith("ie")||driverName.startsWith("internetexplorer")) {
-				
+				InternetExplorerSimple ieS = new InternetExplorerSimple(allDrivesParams.get(driverName));
+				drvTabl.add(new InternetExplorerDriver(ieS.getDesiredCapabilities()));				
 			} else {
 				System.out.println("Error unknown browser type: "+driverName);
 				System.exit(-1);
