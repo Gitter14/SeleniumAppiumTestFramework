@@ -50,6 +50,7 @@ public class SeleniumTestsInPoolExecutor {
 				
 			}
 			System.out.println("{Finished test: "+testName+" for all devices given.}");
+			sttpm.shutdown();
 		}
 	}
 	
