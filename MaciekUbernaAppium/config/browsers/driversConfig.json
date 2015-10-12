@@ -5,6 +5,8 @@
 		 "appium-version":"1.4",
 		 "BROWSER_NAME":"",
 		 "platformName":"Android",
+		 "noReset":false,
+		 fullReset":"false",
 		 "VERSION":"4.0.4",
 		 "deviceName":"CB5A1CNBQF",
 		 "appPackage":"com.example.android.customchoicelist",
@@ -12,15 +14,17 @@
 		 "androidURL":"http://127.0.0.1:4723/wd/hub"
 	},
 	"Android_Nexus5_Lista":{
-		 "appDir":"Application" ,
-		 "app":"Application-debug.apk",
+		 "appDir":"Applications" ,
+		 "app":"com.stepstone.totaljobs.apk",
 		 "appium-version":"1.4",
 		 "BROWSER_NAME":"",
 		 "platformName":"Android",
+		 "noReset":false,
+		 "fullReset":"true",
 		 "VERSION":"5.1.1",
 		 "deviceName":"05ee05830b103fa2",
-		 "appPackage":"com.example.android.customchoicelist",
-		 "appActivity":".MainActivity",
+		 "appPackage":"com.stepstone.totaljobs",
+		 "appActivity":"com.stepstone.base.screen.search.activity.SCJobSearchActivity",
 		 "androidURL":"http://127.0.0.1:4723/wd/hub"
 	},
 	"Firefox":{

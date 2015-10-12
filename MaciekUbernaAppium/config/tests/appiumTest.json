@@ -8,9 +8,9 @@
   	},
   "testList":[
 		{
-			"enable":false,
+			"enable":true,
 			"webdrivers":[
-				"Android"
+				"Android_Nexus5_Lista"
 			],
 			"parameters":{
 				"Param1":"valueOfParam1",
@@ -38,7 +38,7 @@
   	},
   "testList":[	
 			{
-				"enable":true,
+				"enable":false,
 				"webdrivers":[
 					"Firefox,Firefox",
 					"Chrome",

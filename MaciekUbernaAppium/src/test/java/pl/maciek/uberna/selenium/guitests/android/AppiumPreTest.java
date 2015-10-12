@@ -32,7 +32,7 @@ public class AppiumPreTest implements TestExecuter{
 	  
 	  @Test
 	  public void testSeleniumAppium() throws InterruptedException {
-		  //driver.findElement(By.className("android.view.View")).click();
+		  driver.findElement(By.className("UIACollectionCell")).click();
 	  }
 	  
 	  @After

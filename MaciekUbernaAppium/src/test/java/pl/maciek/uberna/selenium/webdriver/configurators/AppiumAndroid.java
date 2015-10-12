@@ -28,6 +28,8 @@ public class AppiumAndroid {
 	    dCaps.setCapability("app", app.getAbsolutePath());
 	    dCaps.setCapability("appPackage", drvPar.get("appPackage"));
 	    dCaps.setCapability("appActivity", drvPar.get("appActivity"));
+	    dCaps.setCapability("noReset",drvPar.get("noReset"));
+	    dCaps.setCapability("fullReset",drvPar.get("fullReset"));
 	    
 	    Url = drvPar.get("androidURL");
 	}
