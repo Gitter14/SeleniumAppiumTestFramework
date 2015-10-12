@@ -2,13 +2,14 @@ package pl.maciek.uberna.selenium.guitests.android;
 
 import static org.junit.Assert.fail;
 
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import pl.maciek.uberna.selenium.framework.TestExecuter;
@@ -19,7 +20,7 @@ public class AppiumPreTest implements TestExecuter{
 	  private StringBuffer verificationErrors = new StringBuffer();
 	  
 	  public AppiumPreTest(
-			  Hashtable<String, String> cfgMap, List<WebDriver> wdList){
+			  Map<String, String> cfgMap, List<WebDriver> wdList){
 		  this.wdList = wdList;
 		  driver = wdList.get(0);
 	  }
@@ -31,7 +32,7 @@ public class AppiumPreTest implements TestExecuter{
 	  
 	  @Test
 	  public void testSeleniumAppium() throws InterruptedException {
-		  
+		  //driver.findElement(By.className("android.view.View")).click();
 	  }
 	  
 	  @After

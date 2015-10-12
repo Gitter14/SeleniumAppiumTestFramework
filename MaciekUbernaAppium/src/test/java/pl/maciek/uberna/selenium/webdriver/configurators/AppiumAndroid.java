@@ -19,6 +19,7 @@ public class AppiumAndroid {
 		File app = new File(appDir, drvPar.get("app"));
 		
 		dCaps.setCapability("appium-version", drvPar.get("appium-version"));
+		System.out.println("Appium ver: "+drvPar.get("appium-version"));
 	    dCaps.setCapability(CapabilityType.BROWSER_NAME, drvPar.get("BROWSER_NAME"));
 	    dCaps.setCapability("platformName", drvPar.get("platformName"));
 	    dCaps.setCapability("platformVersion", drvPar.get("VERSION"));

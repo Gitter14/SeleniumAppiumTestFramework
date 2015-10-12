@@ -47,7 +47,7 @@ public class SeleniumWebDriverInit {
 			String driverNameLowercase = driverName.toLowerCase();
 			if(driverNameLowercase.startsWith("android")){
 			    AppiumAndroid aa = new AppiumAndroid(allDrivesParams.get(driverName));
-			    drvTabl.add(new AndroidDriver(aa.getHubUrl(), aa.getDesiredCapabilities()));    
+			    drvTabl.add(new AndroidDriver<>(aa.getHubUrl(), aa.getDesiredCapabilities()));    
 			} else if (driverNameLowercase.startsWith("firefox")){
 				FirefoxSimple fS = new FirefoxSimple(allDrivesParams.get(driverName));
 				drvTabl.add(new FirefoxDriver(fS.getDesiredCapabilities()));
