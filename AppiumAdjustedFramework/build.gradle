@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+
+jar {
+    baseName = 'web-kiosk-guitest'
+    version = '1.1'
+}
+
+test{
+	beforeTest { descriptor -> 
+		logger.lifecycle("Running test: " + descriptor)
+	}
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('junit:junit:4.11')
+    testCompile('org.mockito:mockito-all:1.9.5')
+    //testCompile('org.seleniumhq.selenium:selenium-java:2.43.1')
+    testCompile('org.seleniumhq.selenium:selenium-java:2.47.0')
+    testCompile('io.appium:java-client:3.2.0')
+    //testCompile('com.github.detro.ghostdriver:phantomjsdriver:1.1.0')
+	testCompile("com.codeborne:phantomjsdriver:1.2.1") {
+		// phantomjs driver pulls in a different selenium version
+		transitive = false
+	}
+}
