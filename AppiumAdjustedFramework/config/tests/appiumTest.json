@@ -1,5 +1,5 @@
 {
-  "pl.framework.selenium.guitests.AppiumPreTest":
+  "pl.framework.selenium.guitests.android.AppiumPreTest":
   {	
   "testObjects":
   	{
@@ -29,7 +29,7 @@
 		}
 	]
   },
-  "pl.framework.selenium.guitests.www_browsers":
+  "pl.framework.selenium.guitests.www_browsers.FirstRun":
   { 
   "testObjects":
   	{
